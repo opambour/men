@@ -1,0 +1,29 @@
+{
+  "name": "men",
+  "description": "Build eCommerce Web App with MongoDB, ExpressJs and NodeJs",
+  "main": "server.js",
+  "authors": [
+    "Michael A. Agyeman"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "MongoDB",
+    "ExpressJs",
+    "NodeJs",
+    "Pug",
+    "Jquery"
+  ],
+  "homepage": "index.pug",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0"
+  }
+}

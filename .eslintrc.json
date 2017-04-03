@@ -1,0 +1,20 @@
+{
+    "extends": "eslint-config-google",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "semi": 2,
+        "linebreak-style": ["error", "windows"],
+        "eol-last": [0, "windows"],
+        "no-multiple-empty-lines": [2, { "max": 4 }]
+    }
+}

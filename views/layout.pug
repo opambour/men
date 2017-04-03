@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  include includes/head.pug
+  body(style="padding-top: 80px; background-color: #edeeef")!= body
+    include includes/header.pug
+    main(class="container", role="main")
+      // main content block
+      block content
+    // footer
+    footer(role="contentinfo")
+      - const currentYear = new Date().getFullYear()
+      div(class="container") Copyright &copy; March 6, 2017 - #{currentYear}
+        span(class='pull-right') Developer: Gimpro Interactive Studios
+
+    // Jquery
+    script(src="./vendors/jquery/dist/jquery.min.js")
+    // bootstrap
+    script(src="./vendors/bootstrap/dist/js/bootstrap.min.js")
