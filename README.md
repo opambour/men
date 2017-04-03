@@ -1,4 +1,4 @@
-#Create an empty File in CMD:
+# Create an empty File in CMD:
     >>> echo >> README.md
 
 # CREATE a File with text:
@@ -78,7 +78,7 @@ Fix all auto-fixable problems: applies ESLint auto-fix resolutions to all fixabl
 Disable ESLint for this Workspace: disables ESLint extension for this workspace.
 Enable ESLint for this Workspace: enable ESLint extension for this workspace.
 
-#Enabling JsHint In VSCode:
+# Enabling JsHint In VSCode:
 1. Select File / Preferences / Workspace Settings
 2. Paste the following code in the settings.json file 
     "jshint.options": {"esversion": 6},
