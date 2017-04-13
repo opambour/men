@@ -1,0 +1,173 @@
+extends layout.pug
+block content
+  div(class="container")
+    if messages.updateSuccess
+      div(class='alert alert-success alert-dismissible role="alert"') #{ messages.updateSuccess }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    if messages.signupSuccess
+      div(class='alert alert-success alert-dismissible role="alert"') #{ messages.signupSuccess }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    if messages.existingEmailError
+      div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.existingEmailError }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    if messages.error
+      div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.error }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    div(class='row')
+      div(class='col-md-3')
+        div(class='text-center')
+          img(src=user.profile.headshot, class='img-circle img-responsive img-thumbnail')
+        div(class='text-center')
+          a(href='' class='text-center') Change photo
+    div(class='row')
+      div(class='col-md-8')
+        h3(class='page-header') Profile: #{user.profile.firstName} #{user.profile.lastName}
+        table(class='table')
+          thead
+            tr
+              th Profile
+              th Information
+              th Action
+          tbody
+            tr
+              td First Name
+              td #{user.profile.firstName || "- empty -"}
+              td <a href='' data-toggle='modal' data-target='#firstNameModal'>Action/Edit</a>
+            tr
+              td Middle Name (Initial)
+              td #{user.profile.middleNameInitial || "- empty -"}
+              td <a href='' data-toggle='modal' data-target='#middleNameModal'>Action/Edit</a>
+            tr
+              td Last Name
+              td #{user.profile.lastName || "- empty -"}
+              td <a href='' data-toggle='modal' data-target='#lastNameModal'>Action/Edit</a>
+            tr
+              td Email
+              td #{user.profile.email || "- empty -"}
+              td <a href='' data-toggle='modal' data-target='#emailModal'>Action/Edit</a>
+            tr
+              td Phone
+              td #{user.profile.phone || "- empty -"}
+              td <a href='' data-toggle='modal' data-target='#phoneModal'>Action/Edit</a>
+            tr
+              td <strong>Address</strong>
+              td
+              td
+            tr
+              td Street
+              td #{user.address.street || "- empty -"}
+              td Action/Edit
+            tr
+              td Apt.
+              td #{user.address.aptNumber || "- empty -"}
+              td Action/Edit
+            tr
+              td City
+              td #{user.address.city || "- empty -"}
+              td Action/Edit
+            tr
+              td State
+              td #{user.address.state || "- empty -"}
+              td Action/Edit
+            tr
+              td Zip Code
+              td #{user.address.zip || "- empty -"}
+              td Action/Edit
+            tr
+              td Username
+              td #{user.login.username || "- empty -"}
+              td Action/Edit
+            tr
+              td Password
+              td - encrypted - <i class='fa fa-barcode'></i> #{user.login.password.substring(0, 16)}... <i class='fa fa-barcode'></i>
+              td Action/Edit
+            tr
+              td Date Joined
+              td #{user.joined || "- empty -"}
+              td Action/Edit
+      div(class='col-md-4')
+    div(class="row")
+      div(class="col-md-4")
+      |
+      div(class="col-md-4")
+        // modal form for first name
+        div(class="modal fade" id="firstNameModal" tabindex="-1" role="dialog" aria-labelledby="firstNameModalLabel")
+          div(class="modal-dialog" role="document")
+            div(class="modal-content")
+              div(class="modal-header" style={background: '#1ba035'})
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(span aria-hidden="true") &times;
+                h4(class="modal-title" id="myModalLabel") Update First Name
+              div(class="modal-body")
+                form(method='post' action='/profile')
+                  div(class="form-group")
+                    label(for="firstName" class='my-label') First Name
+                    input(type="text" class="form-control" name="firstName" id="firstName" value=user.profile.firstName, placeholder="First name")
+                    div(style='padding-top: 10px' class='pull-right')
+                      button(type='submit' class='btn btn-warning') UPDATE
+        // modal form for Middle name
+        div(class="modal fade" id="middleNameModal" tabindex="-1" role="dialog" aria-labelledby="middleNameModalLabel")
+          div(class="modal-dialog" role="document")
+            div(class="modal-content")
+              div(class="modal-header" style={background: '#1ba035'})
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(span aria-hidden="true") &times;
+                h4(class="modal-title" id="myModalLabel") Update Middle Name
+              div(class="modal-body")
+                form(method='post' action='/profile')
+                  div(class="form-group")
+                    label(for="middleNameInitial" class='my-label') Middle Name (Initial)
+                    input(type="text" class="form-control" name="middleNameInitial" id="middleNameInitial" value=user.profile.middleNameInitial, placeholder="M/I")
+                    div(style='padding-top: 10px' class='pull-right')
+                      button(type='submit' class='btn btn-warning') UPDATE
+        // modal form for last name
+        div(class="modal fade" id="lastNameModal" tabindex="-1" role="dialog" aria-labelledby="lastNameModalLabel")
+          div(class="modal-dialog" role="document")
+            div(class="modal-content")
+              div(class="modal-header" style={background: '#1ba035'})
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(span aria-hidden="true") &times;
+                h4(class="modal-title" id="myModalLabel") Last Name
+              div(class="modal-body")
+                form(method='post' action='/profile')
+                  div(class="form-group")
+                    label(for="lastName" class='my-label') Middle Name (Initial)
+                    input(type="text" class="form-control" name="lastName" id="lastName" value=user.profile.lastName, placeholder="First name")
+                    div(style='padding-top: 10px' class='pull-right')
+                      button(type='submit' class='btn btn-warning') UPDATE
+        // modal form for email
+        div(class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel")
+          div(class="modal-dialog" role="document")
+            div(class="modal-content")
+              div(class="modal-header" style={background: '#1ba035'})
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(span aria-hidden="true") &times;
+                h4(class="modal-title" id="myModalLabel") Email
+              div(class="modal-body")
+                form(method='post' action='/profile')
+                  div(class="form-group")
+                    label(for="email" class='my-label') Middle Name (Initial)
+                    input(type="email" class="form-control" name="email" id="email" value=user.profile.email, placeholder="Unique email")
+                    div(style='padding-top: 10px' class='pull-right')
+                      button(type='submit' class='btn btn-warning') UPDATE
+        // modal form for phone
+        div(class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="phoneModalLabel")
+          div(class="modal-dialog" role="document")
+            div(class="modal-content")
+              div(class="modal-header" style={background: '#1ba035'})
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                  span(span aria-hidden="true") &times;
+                h4(class="modal-title" id="myModalLabel") Update Phone
+              div(class="modal-body")
+                form(method='post' action='/profile')
+                  div(class="form-group")
+                    label(for="phone" class='my-label') Phone number
+                    input(type="tel" class="form-control" name="phone" id="phone" value=user.profile.phone, placeholder="000-111-9999")
+                    div(style='padding-top: 10px' class='pull-right')
+                      button(type='submit' class='btn btn-warning') UPDATE
+      div(class="col-md-4")
+      

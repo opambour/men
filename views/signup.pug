@@ -1,0 +1,78 @@
+extends layout.pug
+block content
+  div(class="container")
+    div(class="row")
+      aside(class="col-md-3", role="compliment")
+      |
+      section(class="col-md-6", role="document")
+        h2(class='pager') #{title} <i class='fa fa-user-plus'></i>
+        if messages.existingUserError
+          div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.existingUserError }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        if messages.error
+          div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.error }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        form(method='post' action='/signup' id='signup-form')
+          //- fieldset
+          //-   legend Profile
+          //-   div(class='row')
+          //-     div(class="form-group col-md-6")
+          //-         label(for="email" class='my-label') Email address
+          //-         input(type="email" class="form-control" name="email" id="email" placeholder="youremail@domain.com")
+          //-     div(class="form-group col-md-6")
+          //-       label(for="phone" class='my-label') Phone number
+          //-       input(type="tel" class="form-control" name="phone" id="phone" placeholder="000-111-9999")
+          //-   div(class="form-group")
+          //-     label(for="headshot" class='my-label') Profile picture
+          //-     input(type="file" class="form-control" name="headshot" id="headshot" placeholder="Upload image")
+          //- fieldset
+          //-   legend Address
+          //-   div(class='row')
+          //-     div(class="form-group col-md-10")
+          //-       label(for="Street" class='my-label') Street
+          //-       input(type="text" class="form-control" name="street" id="street" placeholder="Street address")
+          //-     div(class="form-group col-md-2")
+          //-       label(for="aptNumber" class='my-label') Apt/No.
+          //-       input(type="text" class="form-control" name="aptNumber" id="aptNumber" placeholder="optional")
+          //-   div(class='row')
+          //-     div(class="form-group col-md-5")
+          //-       label(for="city" class='my-label') City
+          //-       input(type="text" class="form-control" name="city" id="city" placeholder="City")
+          //-     div(class="form-group col-md-5")
+          //-       label(for="state" class='my-label') State
+          //-       input(type="text" class="form-control" name="State" id="state" placeholder="State")
+          //-     div(class="form-group col-md-2")
+          //-       label(for="zip" class='my-label') Zip
+          //-       input(type="number" class="form-control" name="zip" id="zip" placeholder="5-digits")
+          fieldset
+            legend #{title}
+            div(class='row')
+              div(class="form-group col-md-5")
+                label(for="firstName" class='my-label') First name
+                input(type="text" class="form-control" name="firstName" id="firstName" autofocus required placeholder="First name")
+              div(class="form-group col-md-2")
+                label(for="middleNameInitial" class='my-label') M/I
+                input(type="text" class="form-control" name="middleNameInitial" id="middleNameInitial" placeholder="middle name initial")
+              div(class="form-group col-md-5")
+                label(for="lastName" class='my-label') Last name
+                input(type="text" class="form-control" name="lastName" id="lastName" required placeholder="Last name")
+            div(class="form-group")
+              label(for="email" class='my-label') Email address
+              input(type="email" class="form-control" name="email" id="email" required placeholder="youremail@domain.com")
+            div(class="form-group")
+              label(for="username" class='my-label') Username
+              input(type="text" class="form-control" name="username" id="username" required placeholder="unique username")
+            div(class='row')
+              div(class="form-group col-md-6")
+                label(for="password" class='my-label') Password
+                input(type="password" class="form-control" name="password" id="password" required placeholder="password")
+              div(class="form-group col-md-6")
+                label(for="password2" class='my-label') Repeat password
+                input(type="password" class="form-control" name="password2" id="password2" requireds placeholder="password")
+          div(style='padding-top: 10px' class='pull-right')
+            button(type='submit' class='btn btn-success') SIGN UP <i class='fa fa-user-plus'></i>
+              
+      aside(class="col-md-3", role="compliment")
+      |

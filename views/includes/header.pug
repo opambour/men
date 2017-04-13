@@ -1,4 +1,4 @@
-header(class="navbar navbar-inverse navbar-fixed-top", role="banner")
+header(class="navbar navbar-default navbar-fixed-top", role="banner")
   div(class="container")
     nav(class="navbar-header", role="navigation")
       button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
@@ -22,3 +22,22 @@ header(class="navbar navbar-inverse navbar-fixed-top", role="banner")
               else if link === '#contact'
                 i(class='fa fa-address-card') &nbsp; &nbsp;
               =name
+      ul(class="nav navbar-nav navbar-right")
+        if !user
+          - const urlAndValues = {'/signup': 'Register', '/login': 'Login'}
+          each values, url in urlAndValues
+            li(class={active: url === path})
+              a(href=url)
+                if url === '/signup'
+                  i(class='fa fa-user-plus') &nbsp; &nbsp;
+                if url === '/login'
+                  i(class='fa fa-sign-in') &nbsp; &nbsp;
+                =values
+        else
+          li(class="dropdown")
+            a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") <i class='fa fa-user text-success'></i> #{user.login.username} <span class="caret"></span>
+            ul(class="dropdown-menu")
+              li
+                a(href="/profile") <i class='fa fa-briefcase'></i> &nbsp; &nbsp; Profile
+              li
+                a(href="/logout") <i class='fa fa-power-off text-danger'></i> &nbsp; &nbsp; Logout

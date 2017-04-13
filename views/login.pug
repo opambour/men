@@ -1,0 +1,32 @@
+extends layout.pug
+block content
+  div(class="container")
+    div(class="row")
+      aside(class="col-md-4", role="compliment")
+
+      section(class="col-md-4", role="document")
+        h2(class='pager') #{title} <i class='fa fa-lock'></i>
+        if messages.success
+          div(class='alert alert-success alert-dismissible role="alert"') #{ messages.success }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        if messages.invalidUser
+          div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.invalidUser }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        if messages.invalidPassword
+          div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.invalidPassword }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        form(method='post' action='/login' id='login-form')
+          fieldset
+            legend #{title}
+            div(class="form-group")
+              label(for="username" class='my-label') Username
+              input(type="text" class="form-control" name="username" id="username" autofocus required placeholder="Enter Your Username")
+            div(class="form-group")
+              label(for="password" class='my-label') Password
+              input(type="password" class="form-control" name="password" id="password" required placeholder="Enter Your Password")
+          div(style='padding-top: 10px' class='pull-right')
+            button(type='submit' class='btn btn-success') LOGIN <i class='fa fa-sign-in'></i>
+      aside(class="col-md-4", role="compliment")

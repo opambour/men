@@ -1,16 +1,16 @@
 doctype html
 html(lang="en")
   include includes/head.pug
-  body(style="padding-top: 80px; background-color: #edeeef")!= body
+  body()!= body
+    // include header here...
     include includes/header.pug
-    main(class="container", role="main")
+
+    main(role="main")
       // main content block
       block content
-    // footer
-    footer(role="contentinfo")
-      - const currentYear = new Date().getFullYear()
-      div(class="container") Copyright &copy; March 6, 2017 - #{currentYear}
-        span(class='pull-right') Developer: Gimpro Interactive Studios
+
+    // include footer here...
+    include includes/footer.pug
 
     // Jquery
     script(src="./vendors/jquery/dist/jquery.min.js")

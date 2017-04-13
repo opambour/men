@@ -10,6 +10,8 @@ basicRouter.get('/', function(req, res) {
         req.url, req.method, res.statusCode);
     // Cookies that have been signed
     console.log('Signed Cookies: ', req.signedCookies);
+    // session ID
+    console.log('Session ID: ', req.sessionID);
 
     // next: Express is being told that the method was
     // processed and the regular processing can continue
@@ -25,6 +27,8 @@ basicRouter.get('/about', function(req, res) {
         req.url, req.method, res.statusCode);
     // Cookies that have been signed
     console.log('Signed Cookies: ', req.signedCookies);
+    // session ID
+    console.log('Session ID: ', req.sessionID);
 });
 
 // export basicRouter

@@ -1,11 +1,21 @@
 extends layout.pug
 block content
-  div(class="row")
-    section(class="col-md-9", role="document")
-      p
-      div(class="jumbotron" style="background-color: orange;")
-        h1 This is our #{title} page
-        p This is a template showcasing the optional theme stylesheet included in <strong>Bootstrap</strong>.
-          |&nbsp;Use it as a starting point to create something more unique by building on or modifying it.
-    aside(class="col-md-3", role="compliment")
-      h2 Aside here...
+  div(class="container")
+    div(class="row")
+      div(class="col-md-12")
+        if messages.loginSuccess
+          div(class='alert alert-success alert-dismissible role="alert"') #{ messages.loginSuccess }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        if messages.accessDenied
+          div(class='alert alert-warning alert-dismissible role="alert"') #{ messages.accessDenied }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+      section(class="col-md-9", role="document")
+        p
+        div(class="jumbotron" style="background-color: #FC6042;")
+          h1 This is our #{title} page
+          p This is a template showcasing the optional theme stylesheet included in <strong>Bootstrap</strong>.
+            |&nbsp;Use it as a starting point to create something more unique by building on or modifying it.
+      aside(class="col-md-3", role="compliment")
+        h2 Aside here...

@@ -1,7 +1,40 @@
 extends layout.pug
 block content
-  div(class="row")
-    section(class="col-md-9", role="document")
-      h1 This is our #{title} page
-    aside(class="col-md-3", role="compliment")
-      h2 Aside here...
+  div(id='about_top_img')
+    div(class='row')
+      div(class='col-md-2')
+        img(src='./img/myself.jpg' class='img-responsive img-circle')
+      div(class='col-md-10' id='about_top_content')
+        h1(class="text-center") Who we are...
+  div(class="container")      
+    h1(class="text-center") What we do...
+    h2(class='text-center ')
+      i(class='fa fa-certificate img-circle img-thumbnail')
+    div(class='row')
+        - const pics = {'Web Design': './img/web_design_logo.jpg', 'Responsive Design': './img/responsive_design.png', 'Full Stack Development': './img/fullstack.jpg', 'E-Commerce Development': './img/ecommerce-websites_design.png'}
+        each picUrl, name in pics
+          div(class='col-md-3')
+            div(class="panel panel-success")
+              div(class="panel-body")
+                img(src=picUrl class='img-responsive thumbnail')
+              h4(class="panel-footer text-center")= name
+
+  div(class="container-fluid" style='background: #8e44ad')
+    section(class="col-md-8", role="document")
+      h1(class="text-center" style='color: #edeeef') Clients we've worked for...
+      h2(class='text-center')
+        i(class='fa fa-briefcase img-circle img-thumbnail')
+      p(style='padding-top: 7px; color: #edeeef; font-size: 16px') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non in vero reiciendis explicabo dignissimos 
+        |laboriosam labore voluptatum voluptates id voluptatibus, ducimus distinctio quisquam eligendi magnam 
+        |eaque, optio assumenda. Doloremque, qui.
+        |Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime qui, saepe dolores commodi ad autem tempore 
+        |ur, perspiciatis maiores quidem consequuntur vero neque cumque quam enim magni, amet blanditiis porro!
+      p(style='padding-top: 7px; color: #edeeef; font-size: 16px') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non in vero reiciendis explicabo dignissimos 
+        |laboriosam labore voluptatum voluptates id voluptatibus, ducimus distinctio quisquam eligendi magnam 
+        |eaque, optio assumenda. Doloremque, qui.
+        |Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime qui, saepe dolores commodi ad autem tempore 
+        |ur, perspiciatis maiores quidem consequuntur vero neque cumque quam enim magni, amet blanditiis porro!
+    aside(class="col-md-4", role="compliment")
+      h1(class="text-center" style='color: #edeeef') Ask for quote...
+      h2(class='text-center')
+        i(class='fa fa-money img-circle img-thumbnail')

@@ -1,0 +1,77 @@
+extends ../layout.pug
+block content
+  div(class="container")
+    if messages.adminSuccess
+      div(class='alert alert-success alert-dismissible role="alert"') #{ messages.adminSuccess }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    if messages.adminError
+      div(class='alert alert-danger alert-dismissible role="alert"') #{ messages.adminError }
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") &times;
+    div(class="row")
+      div(class="col-md-12")
+        if messages.loginSuccess
+          div(class='alert alert-success alert-dismissible role="alert"') #{ messages.loginSuccess }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+        if messages.accessDenied
+          div(class='alert alert-warning alert-dismissible role="alert"') #{ messages.accessDenied }
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+      section(class="col-md-9", role="document")
+        div(style='background:#FC6042; color: white; padding: 10px;')
+          h1 #{title} Dashboard <span class='pull-right'><i class='fa fa-dashboard'></i></span>
+        table(class='table table-striped table-hover')
+          thead
+            tr(class='info')
+              th <h3><i class="fa fa-braille" aria-hidden="true"></i></h3>
+              th <h3>Collections</h3>
+              th <h3>Document(s)</h3>
+              th <h3>Add</h3>
+          tbody
+            tr
+              td <i class='fa fa-users'>
+              td </i><a href=''>Users</a>
+              td #{allUsers.length}
+              td <a href=''>User <i class='fa fa-plus-square'></i></a>
+            tr
+              td <i class='fa fa-bar-chart'>
+              td <a href=''>Categories</a>
+              td #{categories.length}
+              td <a href='' data-toggle='modal' data-target='#addCategoryModal'>Category <i class='fa fa-plus-square'></i></a>
+            tr
+              td <i class='fa fa-meetup'>
+              td <a href=''>Manufacturers</a>
+              td total No...
+              td <a href=''>Company <i class='fa fa-plus-square'></i></a>
+            tr
+              td <i class='fa fa-product-hunt'>
+              td <a href=''>Products</a>
+              td total No...
+              td <a href=''>Product <i class='fa fa-plus-square'></i></a>
+      aside(class="col-md-3", role="compliment")
+        div(style='background:#B8312F; color: white; padding: 10px;')
+          h1 Recent Actions
+      
+      // all modal here...
+      div(class="row")
+        div(class="col-md-4")
+        |
+        div(class="col-md-4")
+          // modal form for 'Add Category'
+          div(class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel")
+            div(class="modal-dialog" role="document")
+              div(class="modal-content")
+                div(class="modal-header" style={background: '#FC6042'})
+                  button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                    span(span aria-hidden="true") &times;
+                  h4(class="modal-title" id="myModalLabel") Add a new Category
+                div(class="modal-body")
+                  form(method='post' action='/admin/add-category')
+                    div(class="form-group")
+                        label(for="name" class='my-label') Category
+                        input(type="text" class="form-control" name="name" id="name" placeholder="Category: type in lowercase")
+                        div(style='padding-top: 10px' class='pull-right')
+                          button(type='submit' class='btn btn-large' style='background:#B8312F; color: white;') Add <i class='fa fa-plus-square'></i>
+        div(class="col-md-4")

@@ -6,8 +6,17 @@ head
   meta(name="description" content="")
   meta(name="author" content="")
   //link(rel="icon" href="img/MEN_logo.png")
-  title MEN Stack::#{title}
+  title MEN Stack::
+    case path
+      when '/'
+        = title
+      when '/about'
+        = title
+      when '/signup'
+        = title
   // bootstrap
   link(rel="stylesheet" href="./vendors/bootstrap/dist/css/bootstrap.min.css")
+  //main css
+  link(rel="stylesheet" href="./css/main.css")
   // fontawesome
   link(rel="stylesheet" href="./vendors/components-font-awesome/css/font-awesome.min.css")

@@ -1,0 +1,56 @@
+.navbar-default {
+    background-color: #3E4651;
+    border-color: #edeeef;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    background-color: #60646D;
+}
+
+
+/*----- end of navbar -----*/
+
+.my-label {
+    font-size: 13px;
+}
+
+fieldset {
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+body {
+    padding-top: 80px;
+    background-color: #edeeef;
+}
+
+#about_top_img {
+    background: url("../img/wallpaper_safari_leopard.jpg") no-repeat center fixed;
+    width: 100%;
+    padding: 3%;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.body-content-text {
+    font-size: 16px;
+}
+
+#about_top_content {
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+}

@@ -82,3 +82,34 @@ Enable ESLint for this Workspace: enable ESLint extension for this workspace.
 1. Select File / Preferences / Workspace Settings
 2. Paste the following code in the settings.json file 
     "jshint.options": {"esversion": 6},
+
+# Mongodb Database Commands:
+While mongod server is still running, open a new terminal to initiate mongodb shell:
+>>>$ mongo
+
+## Show databases:
+> show databases
+
+## Select Database:
+> use meandb
+
+## Create database:
+>use meandb
+
+# Using Mongoose to create Schema and connect to your backend:
+Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+mongoose is an object modeling package for Node that essentially works like an ORM that you would see in other languages (like Eloquent for Laravel and django models).
+
+Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. To use mongoose, make sure that you add it to you Node project by using the following command:
+>> npm install --save mongoose
+
+Create database before connecting and creating your model.
+>> Use robomongo to create new database
+
+Connect Your database:
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/your_database');
+
+# Create Your Model Using Mongoose as ORM:
+See...user.model.js
+
